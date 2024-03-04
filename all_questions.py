@@ -204,15 +204,36 @@ def question2():
 
 
 # -----------------------------------------------------------
+# Consider the four data points shown in the following Figure. The distance between each data point to the center C is R.
 def question3():
     answers = {}
 
-    # type: a string that evaluates to a float
-    answers["(a) SSE"] = 7.5
+    # sum of the squared error (SSE)
+        # calculate the error of each data point, i.e., its Euclidean distance to the closest centroid,
+        # and then compute the total sum of the squared errors
+
+    # --------- Question A ---------
+    # Compute the total SSE of the data points to the centroid, C.
+    
+    # SSE = 4 x R^2
 
     # type: a string that evaluates to a float
-    answers["(b) SSE"] = 7.5
+    answers["(a) SSE"] = "4 x R^2"
 
+    # --------- Question B ---------
+    # Compute the total SSE of the data points to the origin, O.
+
+    # SSE = 4 x R^2
+
+    # type: a string that evaluates to a float
+    answers["(b) SSE"] = "4 x R^2"
+
+    # --------- Question C ---------
+    # Using parts (a) and (b),
+    # compute the SSE for the 8 data points shown below with respect to the centroid, D.
+    # Note that points u, v, w, and x lie on a circle of radius R/2.
+    # Also, the figure is symmetric with respect to the horizontal line running through D
+    
     # type: a string that evaluates to a float
     answers["(c) SSE"] = 7.5
 
