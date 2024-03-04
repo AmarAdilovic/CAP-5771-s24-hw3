@@ -4,62 +4,155 @@ import pickle
 
 
 # -----------------------------------------------------------
+# Agglomerative hierarchical clustering refers to procedures such as single link, complete link, and group average,
+# while k-means clustering refers to k-means with random initialization of centroids and Euclidean distance.
 def question1():
     answers = {}
 
+    # Text-book notes (Chapter 5):
+    # K-Means
+        #  Defines a prototype in terms of a centroid (usually the mean of a group of points)
+            # Doesn't need to be an actual data point
+        # Algorithm
+            # Choose K initial centroids, where K is user specified, each point is assigned to the nearest centroid
+                # Recompute the centroid until the centroids stop changing
+                # Collection of points assigned to a centroid is a cluster
+                # Most of the convergence happens in early steps, usually can repeat until a certain weak condition is met
+                    # Such as until only 1% of points change clusters 
+                # Object function - measures the quality of the clustering
+                    # Sum of Squared Error (SSE)
+                        # Prefer the K-means run with the smallest SSE,
+                        # as this means they are more representative of the points in the cluster
+        # Between Group Sum of Squares (SSB)
+            # The sum of the squared distance of a cluster centroid to the overall mean of all the data points
+                # The higher the total SSB of a clustering - the more seperated the clusters are from one another
+        # Cohesion
+            # Maximizing the similarity of the points in a cluster to the cluster centroid
+            # Calculated like SSE, but instead of using distance use cosine similarity
+        # Cohesion and Seperation
+            # Strong relationship between cohesion and seperation
+                # Minimizing SSE (cohesion) is equivalent to maximizing SSB (separation)
+            # It is possible to show that the sum of the total SSE and the total SSB is a constant;
+            # i.e., that it is equal to the total sum of squares (TSS), which is the sum of squares of the distance of each point to
+            # the overall mean of the data
+        # K-Means++
+            # Guaranteed to find a K-Means clustering solution that is optimal within Olog(k)
+                # Results in better clustering results in terms of lower SSE
+        # Issues
+            # Outliers
+                # When the squared error criterion is used - outliers can have a large influence. 
+                # When outliers are present, resulting prototypes are not representative.
+                    # Can identify and remove outliers ahead of time in acceptable applications, eliminate small clusters,
+                    # or eliminate points with unusually high SSE contributions
+        # Time/Space Complexity
+            # Space
+                # O((m + K)n), m: num points, n: num attributes
+            # Time
+                # O(I×K×m×n), I: num iterations for convergence
+    # K-Medoid
+        # Defines a prototype in terms of a medoid (the most representative point for a group of points)
+        # Medoid by definition must be an actual data point
+    # Agglomerative Hierarchical Clustering
+        # Agglomerative
+            # Start with points as individual clusters, each step merge the closest pair of clusters.
+                # Need to define cluster proximity
+            # Often displayed using a tree-like diagram called a dendrogram
+        # Divisive
+            # Start with one all inclusive-cluster, each step split a cluster until only clusters composing one points remain.
+                # Need to determine which cluster to split and how to
+        # Issues
+            # Outliers
+                # Large impact on Ward's method and centroid-based hierarchical clustering approaches
+                    # These approaches increase SSE and distort centroids
+                # Single-link, complete-link, and group average - outliers are less problematic
+                    # Can discard signleton or small clusters to remove outliers
+        # Time/Space Complexity
+            # O(m^2), where m is the number of data points
+    # --------- Question A ---------
+    # Agglomerative hierarchical clustering procedures are better able to handle outliers than k-means
+    
     # type: bool (True/False)
-    answers["(a)"] = -1
+    answers["(a)"] = True
 
     # type: explanatory string (at least four words)
-    answers["(a) explain"] = ""
+    answers["(a) explain"] = "Outliers have a larger impact in K-Means as the mere precence of outliers results in K-Means producing non-representative prototypes, and handling the outliers either requires pre-processing or post-processing the points or clusters. With agglomerative hierarchical clustering, single-link, complete-link, and group average cluster proximity measures are more resistant to outliers."
+
+    # --------- Question B ---------
+    # For any given data set, different runs of k-means can produce different clusterings,
+    # but agglomerative hierarchical clustering procedures will always produce the same clustering
 
     # type: bool (True/False)
-    answers["(b)"] = -1
+    answers["(b)"] = True
 
     # type: explanatory string (at least four words)
-    answers["(b) explain"] = ""
+    answers["(b) explain"] = "With K-Means the K initial clusters are chosen randomly, introducing randomness and thus variation. With Agglomerative hierarchical clustering, if the linkage criterion is consistent, the clusters are defined in an objective and consistent manner, with little room for randomness and thus variation."
+
+    # --------- Question C ---------
+    # K-means take less time and memory than agglomerative hierarchical clustering
+    # and is the most efficient clustering algorithm possible.
 
     # type: bool (True/False)
-    answers["(c)"] = -1
+    answers["(c)"] = False
 
     # type: explanatory string (at least four words)
-    answers["(c) explain"] = ""
+    answers["(c) explain"] = "K-Means is not the most efficient clustering algorithm possible, that will depend on the data set size, shape, and many other factors."
+
+    # --------- Question D ---------
+    # During a post-processing step for K-means, a cluster is split by picking one of the points of
+    # the cluster as a new centroid and then reassigning the points in the cluster either to the original
+    # centroid or the new centroid. What happens to the SSE of the clustering?
 
     # type: bool (True/False)
-    answers["(d)"] = -1
+    answers["(d)"] = False
 
     # type: explanatory string (at least four words)
-    answers["(d) explain"] = ""
+    answers["(d) explain"] = "The SSE will decrease, as one of the points of the cluster is selected as a new centroid, the points will point to whichever centroid is closer, reducing the overall distance for the points to their centroids and thus reducing SSE."
+
+    # --------- Question E ---------
+    # When clustering a dataset using K-means, whenever SSE decreases, cohesion increases.
 
     # type: bool (True/False)
-    answers["(e)"] = -1
+    answers["(e)"] = True
 
     # type: explanatory string (at least four words)
-    answers["(e) explain"] = ""
+    answers["(e) explain"] = "When SSE decreases, the average distance between the points and the centroid decreases, in turn meaning the similarity of those points to the centroid has increased, thus meaning that cluster cohesion has increased."
+
+    # --------- Question F ---------
+    # When clustering a dataset using K-means, whenever SSB (the between sum of squares) increases, separation increases.
 
     # type: bool (True/False)
-    answers["(f)"] = -1
+    answers["(f)"] = True
 
     # type: explanatory string (at least four words)
-    answers["(f) explain"] = ""
+    answers["(f) explain"] = "By definition, the higher the total SSB of a clustering - the more seperated the clusters are from one another."
+
+    # --------- Question G ---------
+    # Cohesion and separation are independent for K-Means,
+    # i.e., improving cohesion (smaller SSE) doesnt necessarily improve separation (larger between sum of squares (SSB)).
 
     # type: bool (True/False)
-    answers["(g)"] = -1
+    answers["(g)"] = False
 
     # type: explanatory string (at least four words)
-    answers["(g) explain"] = ""
+    answers["(g) explain"] = "There is a strong relationship between cohesion and seperation, minimizing SSE (cohesion) is equivalent to maximizing SSB (separation)."
+
+    # --------- Question H ---------
+    # When clustering a dataset using K-means, SSE + BSS is a constant.
 
     # type: bool (True/False)
-    answers["(h)"] = -1
+    answers["(h)"] = True
 
     # type: explanatory string (at least four words)
-    answers["(h) explain"] = ""
+    answers["(h) explain"] = "There is a proof to prove the Total Sum of Squares (TSS) can be proven to be equal to constants SSE and SSB/BSS."
+
+    # --------- Question I ---------
+    # When clustering a dataset using K-means, whenever cohesion increases, separation increases.
 
     # type: bool (True/False)
-    answers["(i)"] = -1
+    answers["(i)"] = False
 
     # type: explanatory string (at least four words)
-    answers["(i) explain"] = ""
+    answers["(i) explain"] = "Decreasing SSE (cohesion) is equivalent to increasing SSB (separation)."
 
     return answers
 
