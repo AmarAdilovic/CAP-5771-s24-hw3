@@ -157,29 +157,46 @@ def question1():
     return answers
 
 
-
-
 # -----------------------------------------------------------
+# Note that we are referring to the very basic k-means algorithm presented and not bisecting k-means or k-means++.
+# Note that for all three figures, the initial centroids are given by the symbol: For figures (a) and (b),
+# assume the shaded areas represent points with the same uniform density. For Figure (c), the data
+# points are given as red dots, and their values are indicated under the dots. No explanation for
+# your answer is necessary unless you feel there is some ambiguity in the figure or the question.
 def question2():
     answers = {}
 
+    # --------- Question A ---------
+    # For Figure (a) and the given initial centroid: When the k-means algorithm completes,
+    # each shaded circle will have one cluster centroid at its center.
+    
     # type: bool (True/False)
-    answers["(a)"] = -1
+    answers["(a)"] = True
 
     # type: explanatory string (at least four words)
-    answers["(a) explain"] = ""
+    answers["(a) explain"] = "Due to the large separation between the two circles, the iterative recomputation of the centroids will occur until the centroid stops changing, which will happen at the center of the two clusters."
+
+    # --------- Question B ---------
+    # For Figure (b) and the given initial centroids:
+    # When the k-means algorithms completes,
+    # there will be one cluster centroid in the center of each of the two shaded regions,
+    # and each of the two final clusters will consist only of points from one of the shaded regions.
+    # In other words, none of the two final clusters will have points from both shaded regions.
 
     # type: bool (True/False)
-    answers["(b)"] = -1
+    answers["(b)"] = False
 
     # type: explanatory string (at least four words)
-    answers["(b) explain"] = ""
+    answers["(b) explain"] = "Due to the crescent shapes of the shaded regions, the proximity of the points to the centroid will necessitate that the final clusters will have points from both shaded regions."
 
+    # --------- Question C ---------
+    # For Figure (c) and the given initial centroids, the final clustering for k-means contains an empty cluster.
+    
     # type: bool (True/False)
-    answers["(c)"] = -1
+    answers["(c)"] = True
 
     # type: explanatory string (at least four words)
-    answers["(c) explain"] = ""
+    answers["(c) explain"] = "The computation of the centroids will result in the centroid at 12.5 being empty."
 
     return answers
 
