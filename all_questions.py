@@ -298,7 +298,7 @@ def question5():
     # Using the single link (MIN) hierarchical clustering technique, which pair of groups would you consider for merging?
     
     # type: set
-    answers["(a)"] = set({'A', 'B'})
+    answers["(a)"] = set('Group A', 'Group B')
 
     # type: explanatory string (at least four words)
     answers["(a) explain"] = "The minimum distance between any two points in two different clusters are the farthest-right point in group A, and the farthest-left point in group B."
@@ -307,7 +307,7 @@ def question5():
     # Using the complete link (MAX) hierarchical clustering technique, which pair of groups would you consider for merging? 
     
     # type: set
-    answers["(b)"] = set({'C', 'B'})
+    answers["(b)"] = set('Group C', 'Group B')
 
     # type: explanatory string (at least four words)
     answers["(b) explain"] = "The maximum distance between any two points in two different clusters are the farthest-left point in group C, and the farthest-right point in group B."
@@ -384,7 +384,7 @@ def question6():
         # M = 4 
 
     # type: set
-    answers["(a) core"] = set({
+    answers["(a) core"] = set(
         'B',
         'C',
         'E',
@@ -393,46 +393,46 @@ def question6():
         'J',
         'L',
         'M'
-    })
+    )
 
     # type: set
-    answers["(a) boundary"] = set({
+    answers["(a) boundary"] = set(
         'D',
         'G'
-    })
+    )
 
     # type: set
-    answers["(a) noise"] = set({
+    answers["(a) noise"] = set(
         'A',
         'H'
-    })
+    )
 
     # type: set
-    answers["(b) cluster 1"] = set({
+    answers["(b) cluster 1"] = set(
         'B',
         'C',
         'D',
         'E',
         'F',
         'G'
-    })
+    )
 
     # type: set
-    answers["(b) cluster 2"] = set({
+    answers["(b) cluster 2"] = set(
         'I',
         'J',
         'L',
         'M'
-    })
+    )
 
     # type: set
-    answers["(b) cluster 3"] = set({})
+    answers["(b) cluster 3"] = set()
 
     # type: set
-    answers["(b) cluster 4"] = set({})
+    answers["(b) cluster 4"] = set()
 
     # type: set
-    answers["(c)-a core"] = set({
+    answers["(c)-a core"] = set(
         'B',
         'C',
         'D',
@@ -443,19 +443,19 @@ def question6():
         'J',
         'L',
         'M'
-    })
+    )
 
     # type: set
-    answers["(c)-a boundary"] = set({
+    answers["(c)-a boundary"] = set(
         'A',
         'H'
-    })
+    )
 
     # type: set
-    answers["(c)-a noise"] = set({})
+    answers["(c)-a noise"] = set()
 
     # type: set
-    answers["(c)-b cluster 1"] = set({
+    answers["(c)-b cluster 1"] = set(
         'A',
         'B',
         'C',
@@ -463,22 +463,22 @@ def question6():
         'E',
         'F',
         'G'
-    })
+    )
 
     # type: set
-    answers["(c)-b cluster 2"] = set({
+    answers["(c)-b cluster 2"] = set(
         'H',
         'I',
         'J',
         'L',
         'M'
-    })
+    )
 
     # type: set
-    answers["(c)-b cluster 3"] = set({})
+    answers["(c)-b cluster 3"] = set()
 
     # type: set
-    answers["(c)-b cluster 4"] = set({})
+    answers["(c)-b cluster 4"] = set()
 
     return answers
 
