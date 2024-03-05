@@ -684,26 +684,39 @@ def question9():
 def question10():
     answers = {}
 
-    # type: string
-    answers["(a) Figure (a)"] = ""
+    # Consider the following two sets of points (faces) shown in figures (a) and (b). The darker shading
+    # indicates a denser point distribution
+
+
+    # For each figure, could you use DBSCAN to find clusters corresponding to the patterns represented by the nose, 
+    # eyes, and mouth? Explain.
 
     # type: string
-    answers["(a) Figure (b)"] = ""
+    answers["(a) Figure (a)"] = "No"
+
+    # type: string
+    answers["(a) Figure (b)"] = "Yes"
 
     # type: explanatory string (at least four words)
-    answers["(a) explain"] = ""
+    answers["(a) explain"] = "DBSCAN would likely discard the low-density regions as noise in figure A, while assuming appropriate EPS and MinPts values would result in figure B being possible to find the patterns represented by the nose, eyes, and mouth."
+
+    # For each figure, could you use K-means to find the patterns represented by the nose, eyes,
+    # and mouth? Explain.
 
     # type: string
-    answers["(b) Figure (a)"] = ""
+    answers["(b) Figure (a)"] = "No"
 
     # type: string
-    answers["(b) Figure (b)"] = ""
+    answers["(b) Figure (b)"] = "No"
 
     # type: explanatory string (at least four words)
-    answers["(b) explain"] = ""
+    answers["(b) explain"] = "K-Means would not find centroids in the nose, eyes, and mouth in figure a) as they are not meaningful areas in the centroid calculation. On the other hand, with K=4, it may be possible to roughly find the patterns in figure b), however these clusters would include the areas of low-density unless they were discarded before hand."
+
+    # For (a), could you figure out a clustering method, which can find the patterns represented by
+    # the nose, eyes, and mouth?
 
     # type: string
-    answers["(c)"] = ""
+    answers["(c)"] = "An adaption of DBSCAN would work where instead of discarding the noise points, the border and core points would instead be discarded. This would leave one with the regions of low-density, representing the nose, eyes, and mouth."
 
     return answers
 
