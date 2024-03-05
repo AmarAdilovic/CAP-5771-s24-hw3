@@ -495,31 +495,17 @@ def question6():
 def question7():
     answers = {}
 
-    # In theory, if we have well-separated clusters, then the
-    # similarity matrix should be roughly block-diagonal. If not, then the patterns
-    # displayed in the similarity matrix can reveal the relationships between clusters.
-
-    # Match the distance matrices (Matrix 1, Matrix 2, Matrix 3) with the sets of points (Dataset X, Dataset Y, and Dataset Z).
-    
     # type: string
-    # Matrix 2 === Dataset X as the highest distances (red blocks) are mirrored from one another
-    # Matrix 1 === Dataset Z as the red blocks are more pronounced than in Matrix 3
-    answers["(a)"] = "(Dataset X, Matrix 2), (Dataset Z, Matrix 1), (Dataset Y, Matrix 3)"
-
-    # Provide a brief explanation of the diagaonal entries and the non-diagonal entries.
-    
-    # type: explanatory string (at least four words)
-    answers["(a) explain"] = "The diagonal entires represent well-separated clusters, the non-diagonal entries represent poorly separated clusters."
-
-    # For the symmetric matrix given in Matrix 2 match the four rows to the corresponding clusters
-    # (characterized the nearest alphabet in each cluster (e.g: A, B, C, D))
-    # in the dataset that you match with it in the previous question
-
-    # type: string
-    answers["(b)"] = "(Row 1, A), (Row 2, B), (Row 3, C), (Row 4, D)"
+    answers["(a)"] = ""
 
     # type: explanatory string (at least four words)
-    answers["(b) explain"] = "Cluster A is the most disimilair to cluster D while being the most similair to itself. Row 1 shows a match on the first cluster, while being the opposite of the last cluster block, this can only be cluster A. Everything else can be inferred from here."
+    answers["(a) explain"] = ""
+
+    # type: string
+    answers["(b)"] = ""
+
+    # type: explanatory string (at least four words)
+    answers["(b) explain"] = ""
 
     return answers
 
@@ -530,56 +516,73 @@ def question7():
 def question8():
     answers = {}
 
-    # type: string
-    answers["(a) Matrix 1"] = ""
+    # In theory, if we have well-separated clusters, then the
+    # similarity matrix should be roughly block-diagonal. If not, then the patterns
+    # displayed in the similarity matrix can reveal the relationships between clusters.
 
-    # type: explanatory string (at least four words)
-    answers["(a) explain diag entries, Matrix 1"] = ""
-
-    # type: explanatory string (at least four words)
-    answers["(a) explain non-diag entries, Matrix 1"] = ""
+    # Match the distance matrices (Matrix 1, Matrix 2, Matrix 3) with the sets of points (Dataset X, Dataset Y, and Dataset Z).
 
     # type: string
-    answers["(a) Matrix 2"] = ""
+    # Matrix 2 === Dataset X as the highest distances (red blocks) are mirrored from one another
+    # Matrix 1 === Dataset Z as the red blocks are more pronounced than in Matrix 3
+    # (Dataset X, Matrix 2), (Dataset Z, Matrix 1), (Dataset Y, Matrix 3)
+    answers["(a) Matrix 1"] = "Dataset Z"
+
+    # Provide a brief explanation of the diagaonal entries and the non-diagonal entries.
 
     # type: explanatory string (at least four words)
-    answers["(a) explain diag entries, Matrix 2"] = ""
+    answers["(a) explain diag entries, Matrix 1"] = "The diagonal entries represent well-separated, compact clusters."
 
     # type: explanatory string (at least four words)
-    answers["(a) explain non-diag entries, Matrix 2"] = ""
+    answers["(a) explain non-diag entries, Matrix 1"] = "The non-diagonal entries represent the relationship between the clusters. In this case, the light green/yellow blocks are on the same axis but opposite ends, while the red blocks are the compact clusters that are furthest from one another."
 
     # type: string
-    answers["(a) Matrix 3"] = ""
+    answers["(a) Matrix 2"] = "Dataset X"
 
     # type: explanatory string (at least four words)
-    answers["(a) explain diag entries, Matrix 3"] = ""
+    answers["(a) explain diag entries, Matrix 2"] = "The diagonal entries represent well-separated clusters. There is a mixture of compactness, thus the first and last diagonal blocks are less blue than the two middle ones which are a deeper blue due to being more compact."
 
     # type: explanatory string (at least four words)
-    answers["(a) explain non-diag entries, Matrix 3"] = ""
+    answers["(a) explain non-diag entries, Matrix 2"] = "The light green/yellow blocks represent clusters that are moving diagonally and the light-red blocks are the non-compact clusters that are on opposite diagonal ends of one another."
 
     # type: string
-    answers["(b) Row 1"] = ""
+    answers["(a) Matrix 3"] = "Dataset Y"
+
+    # type: explanatory string (at least four words)
+    answers["(a) explain diag entries, Matrix 3"] = "The diagonal entries represent well-separated clusters. There is a mixture of compactness, thus the first and last diagonal blocks are less blue than the two middle ones which are a deeper blue due to being more compact."
+
+    # type: explanatory string (at least four words)
+    answers["(a) explain non-diag entries, Matrix 3"] = "In this case, the light green/yellow blocks are on the same axis but opposite ends thus the differences in intensity, while the red blocks are the clusters that are furthest from one another."
+
+    # For the symmetric matrix given in Matrix 2 match the four rows to the corresponding clusters
+    # (characterized the nearest alphabet in each cluster (e.g: A, B, C, D))
+    # in the dataset that you match with it in the previous question
+
+    # (Row 1, A), (Row 2, B), (Row 3, C), (Row 4, D)
 
     # type: string
-    answers["(b) Row 2"] = ""
+    answers["(b) Row 1"] = "A"
 
     # type: string
-    answers["(b) Row 3"] = ""
+    answers["(b) Row 2"] = "B"
 
     # type: string
-    answers["(b) Row 4"] = ""
+    answers["(b) Row 3"] = "C"
+
+    # type: string
+    answers["(b) Row 4"] = "D"
 
     # type: explanatory string (at least four words)
-    answers["(b) Row 1 explain"] = ""
+    answers["(b) Row 1 explain"] = "Cluster A is the furthest from cluster D, Row 1 shows a match on the first cluster, while being the opposite of the last cluster block, this can only be cluster A."
 
     # type: explanatory string (at least four words)
-    answers["(b) Row 2 explain"] = ""
+    answers["(b) Row 2 explain"] = "The closest cluster to A is B, that is why the first block is a light blue, but it is a pattern due to the variations in compactness."
 
     # type: explanatory string (at least four words)
-    answers["(b) Row 3 explain"] = ""
+    answers["(b) Row 3 explain"] = "If the previous cluster is B, then this cluster must be C as it mirrors the blocks of B."
 
     # type: explanatory string (at least four words)
-    answers["(b) Row 4 explain"] = ""
+    answers["(b) Row 4 explain"] = "As cluster A is the first row, cluster D must be the last row as it mirrors the blocks of A."
 
     return answers
 
