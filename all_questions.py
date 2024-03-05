@@ -495,17 +495,27 @@ def question6():
 def question7():
     answers = {}
 
+    # Entropy
+        # Measures how well cluster labels match externally supplied class labels
+        # The degree to which each cluster consists of objects of a single class.
+            # Smaller = less disorder
+            # Higher = more disorder
+
+    # Which cluster has the largest clustering entropy?
+
     # type: string
-    answers["(a)"] = ""
+    answers["(a)"] = "Cluster 4"
 
     # type: explanatory string (at least four words)
-    answers["(a) explain"] = ""
+    answers["(a) explain"] = "This cluster has the most uniform distribution across the different classes/categories."
+
+    # Which cluster has the smallest clustering entropy?
 
     # type: string
-    answers["(b)"] = ""
+    answers["(b)"] = "Cluster 1"
 
     # type: explanatory string (at least four words)
-    answers["(b) explain"] = ""
+    answers["(b) explain"] = "This cluster has the highest homogeneity due to the Water category dominating the other categories."
 
     return answers
 
