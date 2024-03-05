@@ -299,8 +299,8 @@ def question5():
     
     # type: set
     answers["(a)"] = {
-        'A',
-        'B'
+        'Group A',
+        'Group B'
     }
 
     # type: explanatory string (at least four words)
@@ -311,8 +311,8 @@ def question5():
     
     # type: set
     answers["(b)"] = {
-        'C',
-        'B'
+        'Group C',
+        'Group B'
     }
 
     # type: explanatory string (at least four words)
