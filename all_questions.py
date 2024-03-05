@@ -495,17 +495,31 @@ def question6():
 def question7():
     answers = {}
 
+    # In theory, if we have well-separated clusters, then the
+    # similarity matrix should be roughly block-diagonal. If not, then the patterns
+    # displayed in the similarity matrix can reveal the relationships between clusters.
+
+    # Match the distance matrices (Matrix 1, Matrix 2, Matrix 3) with the sets of points (Dataset X, Dataset Y, and Dataset Z).
+    
     # type: string
-    answers["(a)"] = ""
+    # Matrix 2 === Dataset X as the highest distances (red blocks) are mirrored from one another
+    # Matrix 1 === Dataset Z as the red blocks are more pronounced than in Matrix 3
+    answers["(a)"] = "(Dataset X, Matrix 2), (Dataset Z, Matrix 1), (Dataset Y, Matrix 3)"
+
+    # Provide a brief explanation of the diagaonal entries and the non-diagonal entries.
+    
+    # type: explanatory string (at least four words)
+    answers["(a) explain"] = "The diagonal entires represent well-separated clusters, the non-diagonal entries represent poorly separated clusters."
+
+    # For the symmetric matrix given in Matrix 2 match the four rows to the corresponding clusters
+    # (characterized the nearest alphabet in each cluster (e.g: A, B, C, D))
+    # in the dataset that you match with it in the previous question
+
+    # type: string
+    answers["(b)"] = "(Row 1, A), (Row 2, B), (Row 3, C), (Row 4, D)"
 
     # type: explanatory string (at least four words)
-    answers["(a) explain"] = ""
-
-    # type: string
-    answers["(b)"] = ""
-
-    # type: explanatory string (at least four words)
-    answers["(b) explain"] = ""
+    answers["(b) explain"] = "Cluster A is the most disimilair to cluster D while being the most similair to itself. Row 1 shows a match on the first cluster, while being the opposite of the last cluster block, this can only be cluster A. Everything else can be inferred from here."
 
     return answers
 
