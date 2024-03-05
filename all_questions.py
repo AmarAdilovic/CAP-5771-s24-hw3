@@ -298,7 +298,10 @@ def question5():
     # Using the single link (MIN) hierarchical clustering technique, which pair of groups would you consider for merging?
     
     # type: set
-    answers["(a)"] = {'A', 'B'}
+    answers["(a)"] = {
+        'A',
+        'B'
+    }
 
     # type: explanatory string (at least four words)
     answers["(a) explain"] = "The minimum distance between any two points in two different clusters are the farthest-right point in group A, and the farthest-left point in group B."
@@ -307,7 +310,10 @@ def question5():
     # Using the complete link (MAX) hierarchical clustering technique, which pair of groups would you consider for merging? 
     
     # type: set
-    answers["(b)"] = {'C', 'B'}
+    answers["(b)"] = {
+        'C',
+        'B'
+    }
 
     # type: explanatory string (at least four words)
     answers["(b) explain"] = "The maximum distance between any two points in two different clusters are the farthest-left point in group C, and the farthest-right point in group B."
@@ -426,10 +432,10 @@ def question6():
     }
 
     # type: set
-    answers["(b) cluster 3"] = {}
+    answers["(b) cluster 3"] = set()
 
     # type: set
-    answers["(b) cluster 4"] = {}
+    answers["(b) cluster 4"] = set()
 
     # type: set
     answers["(c)-a core"] = {
@@ -452,7 +458,7 @@ def question6():
     }
 
     # type: set
-    answers["(c)-a noise"] = {}
+    answers["(c)-a noise"] = set()
 
     # type: set
     answers["(c)-b cluster 1"] = {
@@ -475,10 +481,10 @@ def question6():
     }
 
     # type: set
-    answers["(c)-b cluster 3"] = {}
+    answers["(c)-b cluster 3"] = set()
 
     # type: set
-    answers["(c)-b cluster 4"] = {}
+    answers["(c)-b cluster 4"] = set()
 
     return answers
 
