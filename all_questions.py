@@ -223,8 +223,6 @@ def question3():
     # --------- Question B ---------
     # Compute the total SSE of the data points to the origin, O.
 
-    # SSE = 4 x R^2
-
     # type: a string that evaluates to a float
     answers["(b) SSE"] = "4 x R^2"
 
@@ -235,11 +233,11 @@ def question3():
     # Also, the figure is symmetric with respect to the horizontal line running through D
     
     # type: a string that evaluates to a float
-    answers["(c) SSE"] = 7.5
+    answers["(c) SSE"] = "8 x (R^2)((R / 2)^2)"
 
     return answers
 
-
+# 
 
 
 # -----------------------------------------------------------
@@ -253,34 +251,34 @@ def question4():
     answers["(a) Circle (b)"] = 0
 
     # type: int
-    answers["(a) Circle (c)"] = 0
+    answers["(a) Circle (c)"] = 3
 
     # type: explanatory string (at least four words)
-    answers["(a) explain"] = ""
+    answers["(a) explain"] = "Due to the large number of points in C and as each circle is equidistant, the centroids centralizing in C will decrease SSE the most amount and would thus converge there."
 
     # type: int
-    answers["(b) Circle (a)"] = 0
+    answers["(b) Circle (a)"] = 1
 
     # type: int
     answers["(b) Circle (b)"] = 0
 
     # type: int
-    answers["(b) Circle (c)"] = 0
+    answers["(b) Circle (c)"] = 2
 
     # type: explanatory string (at least four words)
-    answers["(b) explain"] = ""
+    answers["(b) explain"] = "Due to the large number of points in C, as the centroids move around B, they will be drawn and move to C, however as the centroid in A has no reason to move to B, it will stay in A."
 
     # type: int
-    answers["(c) Circle (a)"] = 0
+    answers["(c) Circle (a)"] = 1
 
     # type: int
     answers["(c) Circle (b)"] = 0
 
     # type: int
-    answers["(c) Circle (c)"] = 0
+    answers["(c) Circle (c)"] = 2
 
     # type: explanatory string (at least four words)
-    answers["(c) explain"] = ""
+    answers["(c) explain"] = "The centroids in C will not move away due to the distances involved, however the centroid in A will stay in A as it would capture the points in cluster B."
 
     return answers
 
@@ -291,17 +289,28 @@ def question4():
 def question5():
     answers = {}
 
+    # MIN / Single-Link
+        # the proximity of two clusters is defined as the minimum of the distance between any two points in the two different clusters.
+    # MAX / Complete-Link
+        # the proximity of two clusters is defined as the maximum of the distance between any two points in the two different clusters.
+    
+    # Question A
+    # Using the single link (MIN) hierarchical clustering technique, which pair of groups would you consider for merging?
+    
     # type: set
-    answers["(a)"] = set()
+    answers["(a)"] = set({'A', 'B'})
 
     # type: explanatory string (at least four words)
-    answers["(a) explain"] = ""
+    answers["(a) explain"] = "The minimum distance between any two points in two different clusters are the farthest-right point in group A, and the farthest-left point in group B."
 
+    # Question B
+    # Using the complete link (MAX) hierarchical clustering technique, which pair of groups would you consider for merging? 
+    
     # type: set
-    answers["(b)"] = set()
+    answers["(b)"] = set({'C', 'B'})
 
     # type: explanatory string (at least four words)
-    answers["(b) explain"] = ""
+    answers["(b) explain"] = "The maximum distance between any two points in two different clusters are the farthest-left point in group C, and the farthest-right point in group B."
 
     return answers
 
@@ -312,47 +321,164 @@ def question5():
 def question6():
     answers = {}
 
-    # type: set
-    answers["(a) core"] = set()
+    # DBSCAN
+        # Density
+            # Center-based approach
+                # Density is estimated for a particular point by counting the number of points within a specified radius, Eps.
+                    # This includes the point itself.
+        # Core points
+            # A point is a core point if there are at least MinPts within a distance of Eps,
+            # where MinPts and Eps are user-specified parameters.
+        # Border points
+            # Not a core point, but falls in the neighborhood of a core point
+        # Noise points
+            # Neither a core or border point
+        # Algorithm
+            # Label all points as core, border, or noise
+            # Elimate noise points
+            # Put an edge between all core points within a distance - Eps - of each other
+            # Make each group of connected core points into a separate cluster
+            # Assign each border point to one of the clusters of its associated core points
+
+    # A point is a core point if its density (number of points within epsilon) is ≥ MinPts.
+    # Given that MinPts = 3 and EPS = 1, answer the following questions.
+
+    # Density when epsilon = 1
+        # A = 1
+            # 1 ≥ 3 === False
+        # B = 3
+            # 3 ≥ 3 === True (Core)
+        # C = 4
+            # 4 ≥ 3 === True (Core)
+        # D = 2
+            # 2 ≥ 3 === False
+        # E = 3
+            # 3 ≥ 3 === True (Core)
+        # F = 4
+            # 4 ≥ 3 === True (Core)
+        # G = 2
+            # 2 ≥ 3 === False
+        # H = 1
+            # 1 ≥ 3 === False
+        # I = 3
+            # 3 ≥ 3 === True (Core)
+        # J = 3
+            # 3 ≥ 3 === True (Core)
+        # L = 3
+            # 3 ≥ 3 === True (Core)
+        # M = 3 
+            # 3 ≥ 3 === True (Core)
+
+    # Density when epsilon = √2
+        # A = 2
+        # B = 5
+        # C = 5
+        # D = 3
+        # E = 6
+        # F = 5
+        # G = 3
+        # H = 2
+        # I = 5
+        # J = 4
+        # L = 4
+        # M = 4 
 
     # type: set
-    answers["(a) boundary"] = set()
+    answers["(a) core"] = set({
+        'B',
+        'C',
+        'E',
+        'F',
+        'I',
+        'J',
+        'L',
+        'M'
+    })
 
     # type: set
-    answers["(a) noise"] = set()
+    answers["(a) boundary"] = set({
+        'D',
+        'G'
+    })
 
     # type: set
-    answers["(b) cluster 1"] = set()
+    answers["(a) noise"] = set({
+        'A',
+        'H'
+    })
 
     # type: set
-    answers["(b) cluster 2"] = set()
+    answers["(b) cluster 1"] = set({
+        'B',
+        'C',
+        'D',
+        'E',
+        'F',
+        'G'
+    })
 
     # type: set
-    answers["(b) cluster 3"] = set()
+    answers["(b) cluster 2"] = set({
+        'I',
+        'J',
+        'L',
+        'M'
+    })
 
     # type: set
-    answers["(b) cluster 4"] = set()
+    answers["(b) cluster 3"] = set({})
 
     # type: set
-    answers["(c)-a core"] = set()
+    answers["(b) cluster 4"] = set({})
 
     # type: set
-    answers["(c)-a boundary"] = set()
+    answers["(c)-a core"] = set({
+        'B',
+        'C',
+        'D',
+        'E',
+        'F',
+        'G',
+        'I',
+        'J',
+        'L',
+        'M'
+    })
 
     # type: set
-    answers["(c)-a noise"] = set()
+    answers["(c)-a boundary"] = set({
+        'A',
+        'H'
+    })
 
     # type: set
-    answers["(c)-b cluster 1"] = set()
+    answers["(c)-a noise"] = set({})
 
     # type: set
-    answers["(c)-b cluster 2"] = set()
+    answers["(c)-b cluster 1"] = set({
+        'A',
+        'B',
+        'C',
+        'D',
+        'E',
+        'F',
+        'G'
+    })
 
     # type: set
-    answers["(c)-b cluster 3"] = set()
+    answers["(c)-b cluster 2"] = set({
+        'H',
+        'I',
+        'J',
+        'L',
+        'M'
+    })
 
     # type: set
-    answers["(c)-b cluster 4"] = set()
+    answers["(c)-b cluster 3"] = set({})
+
+    # type: set
+    answers["(c)-b cluster 4"] = set({})
 
     return answers
 

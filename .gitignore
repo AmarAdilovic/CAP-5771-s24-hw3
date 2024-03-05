@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Personal Tests
+dbscan.py
+
 # C extensions
 *.so
 
