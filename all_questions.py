@@ -603,23 +603,77 @@ def question8():
 def question9():
     answers = {}
 
-    # type: list
-    answers["(a)"] = []
+    # Hierarchical
+        # Set of nested clusters organized as a tree
+    # Partitional
+        # Non-overlapping clusters such that each data object is in exactly one subset
+
+    # Exclusive
+        # Assign objects to a single cluster
+    # Overlapping/Non-Exclusive
+        # An object can simultaneously belong to more than one group (class)
+    # Fuzzy
+        # Every object belongs to every cluster with a membership weight that is between
+        # 0 (does not belong) and 1 (absolutely belongs)
+
+    # Complete
+        # Assigns every object to a cluster
+    # Partial
+        # Does not assign every object to a cluster
+
+    # For each of the described data sets, decide what type of clustering should be used
+    # (
+    # hierarchical or partitional,
+    # exclusive or overlapping or fuzzy,
+    # complete or partial (incomplete)
+    # )
+    # we are using partitional and hierarchical in the more relaxed use of the terms to mean un-nested or nested, respectively.
+
+    # Example: Clustering library books based on their literary genre. The genre/topic can have several subtopics, as well.
+    # Answer: hierarchical, overlapping, complete
+
+    # --------- Question A ---------
+    # Proteins perform different biological functions that are organized into a hierarchical taxonomy (GO) defined by biologists.
+    # Some proteins can be multi-functional as well.
+    # You want to group them based on those functions.
+    # Some proteins may also be missing functional annotation
 
     # type: list
-    answers["(b)"] = []
+    answers["(a)"] = ['hierarchical', 'overlapping', 'partial']
+
+    # --------- Question B ---------
+    # A nutritionist asks you several questions (e.g., your calorie intake, types of food you eat, your
+    # physical activity labels, and so on) to assess your risks for diabetes in three different groups:
+    # low, medium, and high.
 
     # type: list
-    answers["(c)"] = []
+    answers["(b)"] = ['partitional', 'exclusive', 'complete']
+
+    # --------- Question C ---------
+    # An international grad student can work on campus only at most for 20 hours. You want to
+    # assign each student to different job categories (e.g., TA, RA, another on-campus job, jobless).
+    # Hint: the sum of these categories should sum up to 20 hours.
 
     # type: list
-    answers["(d)"] = []
+    answers["(c)"] = ['partitional', 'fuzzy', 'complete']
+
+    # --------- Question D ---------
+    # Grouping of students in a university-based on the organization (department, college, institute, etc.) 
+    # to which they belong. A student may belong to multiple organizations. Also, some
+    # students dont have declared majors and hence may not belong to any organization
 
     # type: list
-    answers["(e)"] = []
+    answers["(d)"] = ['hierarchical', 'overlapping', 'partial']
+
+    # --------- Question E ---------
+    # Grouping of all the students in the Computer Science department based on the letter grade
+    # they get in the data mining (CSci 5523) class.
+
+    # type: list
+    answers["(e)"] = ['partitional', 'exclusive', 'partial']
 
     # type: explanatory string (at least four words)
-    answers["(e) explain"] = ""
+    answers["(e) explain"] = "Each cluster is a letter grade and is thus non-overlapping, so it is partitional. A student can only belong to a single letter-grade cluster at a time (not possible to get both an A and a B, if a student has retaken the course then we place them in the most recent grade). Partial as not every student in the computer science department has taken the course."
 
     return answers
 
