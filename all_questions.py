@@ -298,7 +298,7 @@ def question5():
     # Using the single link (MIN) hierarchical clustering technique, which pair of groups would you consider for merging?
     
     # type: set
-    answers["(a)"] = set('Group A', 'Group B')
+    answers["(a)"] = set("Group A", "Group B")
 
     # type: explanatory string (at least four words)
     answers["(a) explain"] = "The minimum distance between any two points in two different clusters are the farthest-right point in group A, and the farthest-left point in group B."
@@ -307,7 +307,7 @@ def question5():
     # Using the complete link (MAX) hierarchical clustering technique, which pair of groups would you consider for merging? 
     
     # type: set
-    answers["(b)"] = set('Group C', 'Group B')
+    answers["(b)"] = set("Group C", "Group B")
 
     # type: explanatory string (at least four words)
     answers["(b) explain"] = "The maximum distance between any two points in two different clusters are the farthest-left point in group C, and the farthest-right point in group B."
